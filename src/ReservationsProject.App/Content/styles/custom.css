@@ -1,0 +1,90 @@
+/* Reservation List Page */
+.main-body .content .table.reservation-list-table tbody tr td {
+    text-align: center;
+}
+
+.main-body .content .table.reservation-list-table tbody tr td .date {
+    line-height: 1em;
+    font-size: 1em;
+    text-align: left;
+}
+
+.main-body .content .table.reservation-list-table tbody tr td .name {
+    color: #999999;
+    line-height: 1.2em;
+    font-size: .8em;
+    text-align: left;
+}
+
+.main-body .content .table.reservation-list-table tbody tr td .rating,
+.main-body .content .table.reservation-list-table tbody tr td .is-favorite {
+    line-height: 1.5em;
+    font-size: 1.3em;
+}
+
+.main-body .content .table.reservation-list-table tbody tr td .rating .fa {
+    color: #ffc107;
+}
+
+.main-body .content .table.reservation-list-table tbody tr td .is-favorite .fa {
+    color: #dc0713;
+}
+
+/* Contact List Page */
+.main-body .content .table.contact-list-table tbody tr td {
+    text-align: center;
+}
+
+.main-body .content .table.contact-list-table tbody tr td .name {
+    text-align: left;
+}
+
+.main-body .content .table.contact-list-table tbody tr td .type {
+    color: #999999;
+}
+
+.main-body .content .table.contact-list-table tbody tr td .name,
+.main-body .content .table.contact-list-table tbody tr td .type,
+.main-body .content .table.contact-list-table tbody tr td .phone,
+.main-body .content .table.contact-list-table tbody tr td .birthdate {
+    line-height: 2em;
+    font-size: 1em;
+}
+
+/* Create Contact Page - Actions */
+.form-group.has-icon {
+    position: relative;
+}
+
+.form-group.has-icon input,
+.form-group.has-icon select {
+    padding-left: 40px;
+}
+
+.form-group.has-icon span {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    color: #999999;
+}
+
+.fr-toolbar {
+    border-top-color: #cacaca;
+}
+
+.form-actions {
+    margin: 15px 0;
+    text-align: right;
+}
+
+.form-actions .btn {
+    min-width: 100px;
+    background-color: #c20000;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.form-actions .btn.btn-gray {
+    background-color: #999999;
+}

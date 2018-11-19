@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/bundles/css")
+</head>
+<body>
+
+<header class="main-header">
+    <div class="top">
+        <div class="container">
+            <div class="company-brand">
+                <img src="~/Content/images/isucorp.png" alt="" class="primary">
+                <img src="~/Content/images/wcsd.png" alt="" class="secondary">
+            </div>
+            <div class="options pull-right d-inline-block d-md-none">
+                @if (ViewBag.ActivePage == "Reservation")
+                {
+                    <a class="btn btn-sm btn-link" href="@Url.Action("Create", "Reservation")"><span class="fa fa-caret-left"></span> Create Reservation</a>
+                    <a class="btn btn-sm btn-link" href="@Url.Action("List", "Contact")">Contacts List <span class="fa fa-caret-right"></span></a>
+                }
+                else
+                {
+                    <a class="btn btn-sm btn-link" href="@Url.Action("Create", "Contact")"><span class="fa fa-caret-left"></span> Create Contact</a>
+                    <a class="btn btn-sm btn-link" href="@Url.Action("List", "Reservation")">Reservations List <span class="fa fa-caret-right"></span></a>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="container">
+            <h1 class="title">@ViewBag.Title</h1>
+            <div class="options pull-right d-none d-md-inline-block">
+                @if (ViewBag.ActivePage == "Reservation")
+                {
+                    <a class="btn btn-sm" href="@Url.Action("Create", "Reservation")">Create Reservation</a>
+                    <a class="btn btn-sm" href="@Url.Action("List", "Contact")">Contacts List</a>
+                }
+                else
+                {
+                    <a class="btn btn-sm" href="@Url.Action("Create", "Contact")">Create Contact</a>
+                    <a class="btn btn-sm" href="@Url.Action("List", "Reservation")">Reservations List</a>
+                }
+
+            </div>
+        </div>
+    </div>
+</header>
+
+<article class="main-body">
+    @RenderBody()
+</article>
+
+    @Scripts.Render("~/bundles/js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,116 @@
+/* Main Header - Top */
+header.main-header {
+    margin-bottom: 15px;
+}
+
+header.main-header .top {
+    height: 100px;
+    padding: 25px 0;
+    background-image: url('../images/blurred-bg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+header.main-header .top .company-brand {
+    display: inline-block;
+}
+
+header.main-header .top .company-brand img {
+    height: 50px;
+}
+
+header.main-header .top .company-brand img.primary {
+    margin-right: 15px;
+}
+
+header.main-header .top .options .btn {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+@media (max-width: 767px) {
+    header.main-header .top {
+        height: 50px;
+        padding: 10px 0;
+    }
+
+    header.main-header .top .company-brand img {
+        height: 30px;
+    }
+
+    header.main-header .top .company-brand img.secondary {
+        display: none;
+    }
+}
+
+/* Main Header - Bottom */
+header.main-header .bottom {
+    height: 50px;
+    padding: 10px 0;
+    background-color: #fafafa;
+}
+
+header.main-header .bottom .title {
+    display: inline-block;
+    margin: 0;
+    font-size: 1.3em;
+    color: #c20000;
+}
+
+header.main-header .bottom .btn {
+    color: #ffffff;
+    background-color: #acacac;
+    text-transform: uppercase;
+    border-radius: 0;
+}
+
+/* Main Container - Table */
+.main-body .content {
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    background-color: #fafafa;
+}
+
+.main-body .content .table thead tr th * {
+    color: #666666;
+}
+
+.main-body .content .table tbody tr td {
+    padding: 5px;
+    border: none;
+    background-color: #ececec;
+    border-bottom: 10px solid #fafafa;
+}
+
+.main-body .content .table tbody tr td .btn {
+    color: #ffffff;
+    background-color: #acacac;
+    text-transform: uppercase;
+    border-radius: 0;
+}
+
+.main-body .content .table tbody tr td .actions {
+    text-align: right;
+}
+.main-body .content .table tbody tr td .actions form {
+    display: inline-block;
+}
+
+
+/* Main Container - Pagination */
+.pagination .page-item {
+    margin: 0 1px;
+}
+
+.pagination .page-item a {
+    padding: 6px 10px;
+    color: #999999;
+    border-radius: 3px;
+}
+
+.pagination .page-item a:hover,
+.pagination .page-item a.active{
+    color: #ffffff;
+    background-color: #999999;
+}

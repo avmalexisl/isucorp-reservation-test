@@ -1,0 +1,86 @@
+﻿@model IEnumerable<ISUCorp.ReservationsProject.Domain.Dto.ContactDto>
+@using ISUCorp.ReservationsProject.Domain.Dto
+
+@{
+    ViewBag.ActivePage = "Contact";
+    ViewBag.Title = "Contacts List";
+}
+
+<div class="container">
+    <div class="content">
+        <div class="form-horizontal">
+
+            <table class="table contact-list-table">
+                <thead>
+                    <tr>
+                        <th>
+                            <a href="@Url.Action("List", "Contact", new {page = 1, sortBy = nameof(ContactDto.Name)})"><span class="fa fa-sort-amount-asc"></span> Name</a>
+                        </th>
+                        <th>
+                            <a href="@Url.Action("List", "Contact", new {page = 1, sortBy = nameof(ContactDto.Phone)})"><span class="fa fa-sort-amount-asc"></span> Phone</a>
+                        </th>
+                        <th>
+                            <a href="@Url.Action("List", "Contact", new {page = 1, sortBy = nameof(ContactDto.BirthDate)})"><span class="fa fa-sort-amount-asc"></span> Birth Date</a>
+                        </th>
+                        <th>
+                            <a href="@Url.Action("List", "Contact", new {page = 1, sortBy = nameof(ContactDto.Type)})"><span class="fa fa-sort-amount-asc"></span> Type</a>
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var contactDto in Model)
+                    {
+                        <tr>
+                            <td>
+                                <div class="name">@contactDto.Name</div>
+                            </td>
+                            <td>
+                                <div class="phone">@contactDto.Phone</div>
+                            </td>
+                            <td>
+                                <div class="birthdate">@contactDto.BirthDate</div>
+                            </td>
+                            <td>
+                                <div class="type">@contactDto.Type</div>
+                            </td>
+                            <td>
+                                <div class="actions">
+                                    <a class="btn btn-sm" href="@Url.Action("Edit", "Contact", new { id = contactDto.Id })">Edit</a>
+                                    @using (Html.BeginForm("Remove", "Contact", new {id = contactDto.Id}, FormMethod.Post, new {id = contactDto.Id}))
+                                    {
+                                        <button type="submit" class="btn btn-sm">Remove</button>
+                                    }
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="@Url.Action("List", "Contact", new { page = 1 })" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    @for (var i = 1; i <= ViewBag.PageCount; i++)
+                    {
+                        <li class="page-item">
+                            <a class="page-link @(ViewBag.CurrentPage == i ? "active" : null)" href="@Url.Action("List", "Contact", new { page = i })">@i</a>
+                        </li>
+                    }
+                    <li class="page-item">
+                        <a class="page-link" href="@Url.Action("List", "Contact", new { page = ViewBag.PageCount })" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+</div>
