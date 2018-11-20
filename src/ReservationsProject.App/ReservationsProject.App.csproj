@@ -168,6 +168,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\LocalizationHelper.cs" />
+    <Compile Include="Localization.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Localization.resx</DependentUpon>
+    </Compile>
     <Compile Include="Models\ReservationListViewHelper.cs" />
     <Compile Include="Models\ContactListViewHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -227,6 +232,12 @@
       <Project>{3BC46A7C-2AC0-4713-9068-545442D338D5}</Project>
       <Name>ReservationsProject.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Localization.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Localization.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
