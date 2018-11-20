@@ -5,5 +5,3 @@ packages/
 *.bak
 *.suo
 src/\.vs/
-
-src/ReservationsProject\.App/node_modules/
