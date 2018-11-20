@@ -1,4 +1,6 @@
-﻿@model ISUCorp.ReservationsProject.Domain.Dto.ReservationInputDto
+﻿@using ISUCorp.ReservationsProject.Core
+@using ISUCorp.ReservationsProject.Core.Utils
+@model ISUCorp.ReservationsProject.Domain.Dto.ReservationInputDto
 
 @{
     ViewBag.ActivePage = "Reservation";
@@ -14,32 +16,28 @@
                         <div class="form-group has-icon">
                             <label for="" class="sr-only">Name</label>
                             <span class="fa fa-users"></span>
-                            <select data-bind="options: ContactsName, value: ContactName" class="form-control" name="name">
-                                <option>Name</option>
-                            </select>
+                            <select data-bind="options: AvailableContacts, optionsText: 'Name', value: SelectedContact" class="form-control" name="name"></select>
                         </div>
                     </div>
                     <div class="col-12 col-md-3">
                         <div class="form-group has-icon">
                             <label for="" class="sr-only">Contact type</label>
                             <span class="fa fa-globe"></span>
-                            <select data-bind="value: ContactType" class="form-control" name="contact-type" disabled="disabled">
-                                <option>Type</option>
-                            </select>
+                            @Html.DropDownListFor(reservationDto => reservationDto.Contact.Type, Enum.GetValues(typeof(ContactType)).Cast<ContactType>().Select(x => new SelectListItem { Text = x.GetDescription(), Value = ((int)x).ToString() }), new { @class = "form-control", data_bind = "value: SelectedContact().Type", disabled = "" })
                         </div>
                     </div>
                     <div class="col-12 col-md-3">
                         <div class="form-group has-icon">
                             <label for="" class="sr-only">Phone</label>
                             <span class="fa fa-phone"></span>
-                            <input type="text" data-bind="value: ContactPhone" class="form-control" name="phone" id="" placeholder="Phone" disabled="disabled">
+                            <input type="text" data-bind="value: SelectedContact().Phone" class="form-control" name="phone" id="" placeholder="Phone" disabled="disabled">
                         </div>
                     </div>
                     <div class="col-12 col-md-3">
                         <div class="form-group has-icon">
                             <label for="" class="sr-only">Birthday</label>
                             <span class="fa fa-calendar"></span>
-                            <input type="date" data-bind="value: BirthDate" class="form-control" name="birthdate" id="" placeholder="Birthday" disabled="disabled">
+                            <input type="date" data-bind="value: SelectedContact().FormattedBirthDate" class="form-control" name="birthdate" id="" placeholder="Birthday" disabled="disabled">
                             <small class="form-text text-muted">Birthday</small>
                         </div>
                     </div>
@@ -60,7 +58,7 @@
                         <div class="form-group has-icon">
                             <label for="" class="sr-only">Rating</label>
                             <span class="fa fa-star"></span>
-                            <select id="" data-bind="value: Rating" class="form-control" name="rating">
+                            <select id="" data-bind="value: ReservationRating" class="form-control" name="rating">
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
@@ -73,6 +71,7 @@
             </div>
 
             <div class="form-actions">
+                <a class="btn btn-sm btn-gray" href="@Url.Action("List", "Reservation")">Cancel</a>
                 <input class="btn btn-sm" data-bind="click: send" type="submit" value="Send">
             </div>
 

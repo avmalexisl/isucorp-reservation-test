@@ -5,12 +5,12 @@ namespace ISUCorp.ReservationsProject.Core
     public enum ContactType
     {
         [LocalizedDescription("Basic", typeof(Localization))]
-        Basic = 0,
+        Basic,
 
         [LocalizedDescription("Medium", typeof(Localization))]
-        Medium = 1,
+        Medium,
 
         [LocalizedDescription("Advanced", typeof(Localization))]
-        Advanced = 2
+        Advanced
     }
 }

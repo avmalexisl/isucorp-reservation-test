@@ -44,6 +44,15 @@ namespace ISUCorp.ReservationsProject.Domain.Services
             return Mapper.Map<ContactDto>(this._repository.FindById(id));
         }
 
+        public CollectionResponseDto<ContactDto> FindAll()
+        {
+            var entities = this._repository.FindAll();
+            var response = new CollectionResponseDto<ContactDto> { SourceTotal = entities.Count() };
+            var items = Mapper.Map<List<ContactDto>>(entities);
+            response.Items.AddRange(items);
+            return response;
+        }
+
         public CollectionResponseDto<ContactDto> FindAll(PaginationInputDto input)
         {
             if (input.SkipCount < 0)

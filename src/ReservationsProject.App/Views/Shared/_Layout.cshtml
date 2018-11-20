@@ -18,12 +18,12 @@
             <div class="options pull-right d-inline-block d-md-none">
                 @if (ViewBag.ActivePage == "Reservation")
                 {
-                    <a class="btn btn-sm btn-link" href="@Url.Action("Create", "Reservation")"><span class="fa fa-caret-left"></span> Create Reservation</a>
+                    @*<a class="btn btn-sm btn-link" href="@Url.Action("Create", "Reservation")"><span class="fa fa-caret-left"></span> Create Reservation</a>*@
                     <a class="btn btn-sm btn-link" href="@Url.Action("List", "Contact")">Contacts List <span class="fa fa-caret-right"></span></a>
                 }
                 else
                 {
-                    <a class="btn btn-sm btn-link" href="@Url.Action("Create", "Contact")"><span class="fa fa-caret-left"></span> Create Contact</a>
+                    @*<a class="btn btn-sm btn-link" href="@Url.Action("Create", "Contact")"><span class="fa fa-caret-left"></span> Create Contact</a>*@
                     <a class="btn btn-sm btn-link" href="@Url.Action("List", "Reservation")">Reservations List <span class="fa fa-caret-right"></span></a>
                 }
             </div>
@@ -32,16 +32,16 @@
     <div class="bottom">
         <div class="container">
             <h1 class="title">@ViewBag.Title</h1>
-            <div class="options pull-right d-none d-md-inline-block">
+            <div class="options pull-right">
                 @if (ViewBag.ActivePage == "Reservation")
                 {
                     <a class="btn btn-sm" href="@Url.Action("Create", "Reservation")">Create Reservation</a>
-                    <a class="btn btn-sm" href="@Url.Action("List", "Contact")">Contacts List</a>
+                    <a class="btn btn-sm d-none d-md-inline-block" href="@Url.Action("List", "Contact")">Contacts List</a>
                 }
                 else
                 {
                     <a class="btn btn-sm" href="@Url.Action("Create", "Contact")">Create Contact</a>
-                    <a class="btn btn-sm" href="@Url.Action("List", "Reservation")">Reservations List</a>
+                    <a class="btn btn-sm d-none d-md-inline-block" href="@Url.Action("List", "Reservation")">Reservations List</a>
                 }
 
             </div>

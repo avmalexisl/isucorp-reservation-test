@@ -17,6 +17,17 @@ namespace ISUCorp.ReservationsProject.App.Controllers
             this.reservationService = reservationService;
         }
 
+        public JsonResult GetById(int id = 0)
+        {
+            if (id == 0)
+            {
+                return null;
+            }
+
+            var reservationDto = this.reservationService.Find(id);
+            return this.Json(reservationDto, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult List(int page = 1, string sortBy = null)
         {
             if (string.IsNullOrEmpty(sortBy))
@@ -81,13 +92,53 @@ namespace ISUCorp.ReservationsProject.App.Controllers
             return message;
         }
 
-        public ActionResult Edit()
+        public ActionResult Edit(int id = 0)
         {
-            return View();
+            if (id == 0)
+            {
+                return View();
+            }
+
+            var reservationDto = this.reservationService.Find(id);
+            return View(reservationDto);
         }
 
-        public ActionResult Remove()
+        public ActionResult EditFavorite(int id = 0, bool isFavorite = false)
         {
+            if (id == 0)
+            {
+                return RedirectToAction("List");
+            }
+
+            var reservationDto = reservationService.Find(id);
+            reservationDto.IsFavorite = isFavorite;
+            this.reservationService.Update(reservationDto);
+            return RedirectToAction("List");
+        }
+
+        [HttpPost]
+        public ActionResult Edit(ReservationDto input)
+        {
+            if (!ModelState.IsValid)
+            {
+                var message = this.ValidateFields();
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest, message);
+            }
+
+            try
+            {
+                this.reservationService.Update(input);
+                return new HttpStatusCodeResult(HttpStatusCode.OK);
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        public ActionResult Remove(int id)
+        {
+            reservationService.Remove(id);
             return RedirectToAction("List");
         }
     }

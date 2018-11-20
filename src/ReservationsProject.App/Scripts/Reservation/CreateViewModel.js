@@ -1,16 +1,15 @@
 ﻿var CreateViewModel = {
-    ContactsName: ko.observable().extend({ required: true }).extend({ maxLength: 80 }),
-    Birthdate: ko.observable().extend({ required: true }),
-    Type: ko.observable().extend({ required: true }),
-    Phone: ko.observable().extend({ digit: true }),
-    Description: ko.observable(),
+    AvailableContacts: ko.observableArray([]),
+    SelectedContact: ko.observable(),
+    ReservationDate: ko.observable(),
+    ReservationRating: ko.observable(),
 
     send: function () {
 
         var json = ko.toJS({
-            ReservationDate: '2018-11-20 00:00:00.000',
-            Rating: 5,
-            ContactId: 2
+            ReservationDate: CreateViewModel.ReservationDate(),
+            Rating: CreateViewModel.ReservationRating(),
+            ContactId: CreateViewModel.SelectedContact().Id
         });
         $.ajax({
             url: "/Reservation/Create",
@@ -27,4 +26,9 @@
     }
 };
 
-ko.applyBindings(CreateViewModel);
+$.getJSON("/Contact/GetAll/",
+    function (data) {
+        CreateViewModel.AvailableContacts(data.Items);
+
+        ko.applyBindings(CreateViewModel);
+    });

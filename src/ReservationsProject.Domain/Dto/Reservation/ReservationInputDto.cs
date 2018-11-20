@@ -15,5 +15,7 @@ namespace ISUCorp.ReservationsProject.Domain.Dto
         public bool IsFavorite { get; set; }
 
         public int ContactId { get; set; }
+
+        public ContactDto Contact { get; set; }
     }
 }

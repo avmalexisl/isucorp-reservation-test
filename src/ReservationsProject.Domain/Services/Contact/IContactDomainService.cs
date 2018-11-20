@@ -10,6 +10,8 @@ namespace ISUCorp.ReservationsProject.Domain.Services
 
         ContactDto Find(int id);
 
+        CollectionResponseDto<ContactDto> FindAll();
+
         CollectionResponseDto<ContactDto> FindAll(PaginationInputDto input);
 
         ContactDto Update(ContactDto input);

@@ -16,11 +16,11 @@
                         <th>
                             <a href="@Url.Action("List", "Reservation", new {page = 1, sortBy = nameof(ReservationDto.ReservationDate)})"><span class="fa fa-sort-amount-asc"></span> Date</a>
                         </th>
-                        <th class="text-center">
+                        <th class="text-center hidden-xs">
                             <a href="@Url.Action("List", "Reservation", new {page = 1, sortBy = nameof(ReservationDto.Rating)})"><span class="fa fa-sort-amount-asc"></span> Rating</a>
                         </th>
                         <th class="text-center">
-                            <a href="@Url.Action("List", "Reservation", new {page = 1, sortBy = nameof(ReservationDto.IsFavorite)})"><span class="fa fa-sort-amount-asc"></span> Is Favorite</a>
+                            <a href="@Url.Action("List", "Reservation", new {page = 1, sortBy = nameof(ReservationDto.IsFavorite)})"><span class="fa fa-sort-amount-asc"></span> Favorite</a>
                         </th>
                         <th></th>
                     </tr>
@@ -33,7 +33,7 @@
                                 <div class="date">@reservationDto.ReservationDate</div>
                                 <div class="name">@reservationDto.Contact.Name</div>
                             </td>
-                            <td>
+                            <td class="hidden-xs">
                                 <div class="rating">
                                     @for (int i = 0; i < 5; i++)
                                     {
@@ -49,22 +49,25 @@
                             </td>
                             <td>
                                 <div class="is-favorite">
-                                    @if (reservationDto.IsFavorite)
-                                    {
-                                        <span class="fa fa-heart"></span>
-                                    }
-                                    else
-                                    {
-                                        <span class="fa fa-heart-o"></span>
-                                    }
+                                    <a href="@Url.Action("EditFavorite", "Reservation", new {id = reservationDto.Id, isFavorite = !reservationDto.IsFavorite})">
+                                        @if (reservationDto.IsFavorite)
+                                        {
+
+                                            <span class="fa fa-heart"></span>
+                                        }
+                                        else
+                                        {
+                                            <span class="fa fa-heart-o"></span>
+                                        }
+                                    </a>
                                 </div>
                             </td>
                             <td>
                                 <div class="actions">
-                                    <a class="btn btn-sm" href="@Url.Action("Edit", "Reservation", new { id = reservationDto.Id })">Edit</a>
+                                    <a class="btn btn-sm" href="@Url.Action("Edit", "Reservation", new { id = reservationDto.Id })"><span class="fa fa-pencil"></span> <span class="hidden-xs">Edit</span></a>
                                     @using (Html.BeginForm("Remove", "Reservation", new { id = reservationDto.Id }, FormMethod.Post, new { id = reservationDto.Id }))
                                     {
-                                        <button type="submit" class="btn btn-sm">Remove</button>
+                                        <button type="submit" class="btn btn-sm"><span class="fa fa-trash"></span> <span class="hidden-xs">Remove</span></button>
                                     }
                                 </div>
                             </td>

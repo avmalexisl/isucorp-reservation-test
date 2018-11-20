@@ -189,6 +189,8 @@
     <Content Include="Scripts\Contact\CreateViewModel.js" />
     <Content Include="Scripts\Contact\EditViewModel.js" />
     <Content Include="Scripts\Reservation\CreateViewModel.js" />
+    <Content Include="Scripts\Reservation\EditViewModel.js" />
+    <Content Include="Scripts\Reservation\ListViewModel.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

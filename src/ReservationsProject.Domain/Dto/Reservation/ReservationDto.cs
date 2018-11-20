@@ -27,6 +27,6 @@ namespace ISUCorp.ReservationsProject.Domain.Dto
 
         public int ContactId { get; set; }
 
-        public virtual ContactDto Contact { get; set; }
+        public ContactDto Contact { get; set; }
     }
 }

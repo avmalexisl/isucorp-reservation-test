@@ -67,9 +67,10 @@ namespace ISUCorp.ReservationsProject.Domain.Services
 
         public ReservationDto Update(ReservationDto input)
         {
+            var reservationInput = Mapper.Map<Reservation>(input);
             var found = this.ValidateReservationExists(input.Id);
 
-            found.ReservationDate = input.ReservationDate;
+            found.ReservationDate = reservationInput.ReservationDate;
             found.Rating = input.Rating;
             found.IsFavorite = input.IsFavorite;
 

@@ -16,13 +16,13 @@
                         <th>
                             <a href="@Url.Action("List", "Contact", new {page = 1, sortBy = nameof(ContactDto.Name)})"><span class="fa fa-sort-amount-asc"></span> Name</a>
                         </th>
-                        <th>
+                        <th class="text-center hidden-xs">
                             <a href="@Url.Action("List", "Contact", new {page = 1, sortBy = nameof(ContactDto.Phone)})"><span class="fa fa-sort-amount-asc"></span> Phone</a>
                         </th>
-                        <th>
+                        <th class="text-center hidden-xs">
                             <a href="@Url.Action("List", "Contact", new {page = 1, sortBy = nameof(ContactDto.BirthDate)})"><span class="fa fa-sort-amount-asc"></span> Birth Date</a>
                         </th>
-                        <th>
+                        <th class="text-center">
                             <a href="@Url.Action("List", "Contact", new {page = 1, sortBy = nameof(ContactDto.Type)})"><span class="fa fa-sort-amount-asc"></span> Type</a>
                         </th>
                         <th></th>
@@ -35,10 +35,10 @@
                             <td>
                                 <div class="name">@contactDto.Name</div>
                             </td>
-                            <td>
+                            <td class="hidden-xs">
                                 <div class="phone">@contactDto.Phone</div>
                             </td>
-                            <td>
+                            <td class="hidden-xs">
                                 <div class="birthdate">@contactDto.BirthDate</div>
                             </td>
                             <td>
@@ -46,10 +46,10 @@
                             </td>
                             <td>
                                 <div class="actions">
-                                    <a class="btn btn-sm" href="@Url.Action("Edit", "Contact", new { id = contactDto.Id })">Edit</a>
+                                    <a class="btn btn-sm" href="@Url.Action("Edit", "Contact", new { id = contactDto.Id })"><span class="fa fa-pencil"></span> <span class="hidden-xs">Edit</span></a>
                                     @using (Html.BeginForm("Remove", "Contact", new {id = contactDto.Id}, FormMethod.Post, new {id = contactDto.Id}))
                                     {
-                                        <button type="submit" class="btn btn-sm">Remove</button>
+                                    <button type="submit" class="btn btn-sm"><span class="fa fa-trash"></span> <span class="hidden-xs">Remove</span></button>
                                     }
                                 </div>
                             </td>

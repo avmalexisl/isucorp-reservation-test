@@ -29,7 +29,12 @@ namespace ISUCorp.ReservationsProject.App.Controllers
             }
 
             var contactDto = this.contactService.Find(id);
-            contactDto.FormattedBirthDate = contactDto.BirthDate.ToString("yyyy-MM-dd");
+            return this.Json(contactDto, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetAll()
+        {
+            var contactDto = this.contactService.FindAll();
             return this.Json(contactDto, JsonRequestBehavior.AllowGet);
         }
 

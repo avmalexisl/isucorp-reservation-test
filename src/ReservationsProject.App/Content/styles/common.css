@@ -114,3 +114,10 @@ header.main-header .bottom .btn {
     color: #ffffff;
     background-color: #999999;
 }
+
+/*Utils*/
+@media (max-width: 767px) {
+    .hidden-xs {
+        display: none;
+    }
+}
