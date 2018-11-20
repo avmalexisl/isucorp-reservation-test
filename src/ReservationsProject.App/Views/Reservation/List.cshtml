@@ -30,7 +30,8 @@
                     {
                         <tr>
                             <td>
-                                <div class="date">@reservationDto.ReservationDate</div>
+                                <div class="date hidden-xs">@reservationDto.ReservationDate</div>
+                                <div class="date visible-xs">@reservationDto.FormattedReservationDate</div>
                                 <div class="name">@reservationDto.Contact.Name</div>
                             </td>
                             <td class="hidden-xs">

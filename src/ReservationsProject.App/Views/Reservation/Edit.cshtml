@@ -59,13 +59,7 @@
                         <div class="form-group has-icon">
                             <label for="" class="sr-only">Rating</label>
                             <span class="fa fa-star"></span>
-                            <select id="" data-bind="value: Reservation().Rating" class="form-control" name="rating">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
+                            <select id="" data-bind="options: AvailableRatings, value: Reservation().Rating" class="form-control" name="rating"></select>
                         </div>
                     </div>
                 </div>

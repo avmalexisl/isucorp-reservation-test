@@ -1,7 +1,7 @@
 ﻿var CreateViewModel = {
     AvailableContacts: ko.observableArray([]),
     SelectedContact: ko.observable(),
-    ReservationDate: ko.observable(),
+    ReservationDate: ko.observable().extend({ required: true }),
     ReservationRating: ko.observable(),
 
     send: function () {

@@ -17,3 +17,12 @@ button,
 .btn {
     cursor: pointer;
 }
+
+.btn {
+    opacity: .8;
+    transition: ease-in-out all 200ms;
+}
+.btn:hover {
+    opacity: 1;
+    box-shadow: 2px 1px 1px #acacac;
+}

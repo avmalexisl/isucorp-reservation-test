@@ -121,3 +121,8 @@ header.main-header .bottom .btn {
         display: none;
     }
 }
+@media (min-width: 768px) {
+    .visible-xs {
+        display: none;
+    }
+}

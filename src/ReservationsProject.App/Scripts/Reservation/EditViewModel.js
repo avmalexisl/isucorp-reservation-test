@@ -1,5 +1,6 @@
 ﻿var EditViewModel = {
     Reservation: ko.observable(),
+    AvailableRatings: ko.observable([1,2,3,4,5]),
 
     send: function () {
 

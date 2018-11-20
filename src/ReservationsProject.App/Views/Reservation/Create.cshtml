@@ -9,7 +9,7 @@
 
 <article class="main-body">
     <div class="container">
-        <form action="" method="POST" class="form-horizontal" role="form">
+        <form data-bind="submit: send" class="form-horizontal">
             <div class="content">
                 <div class="row">
                     <div class="col-12 col-md-3">
@@ -23,7 +23,7 @@
                         <div class="form-group has-icon">
                             <label for="" class="sr-only">Contact type</label>
                             <span class="fa fa-globe"></span>
-                            @Html.DropDownListFor(reservationDto => reservationDto.Contact.Type, Enum.GetValues(typeof(ContactType)).Cast<ContactType>().Select(x => new SelectListItem { Text = x.GetDescription(), Value = ((int)x).ToString() }), new { @class = "form-control", data_bind = "value: SelectedContact().Type", disabled = "" })
+                            @Html.DropDownListFor(reservationDto => reservationDto.Contact.Type, Enum.GetValues(typeof(ContactType)).Cast<ContactType>().Select(x => new SelectListItem { Text = x.GetDescription(), Value = ((int)x).ToString() }), new { @class = "form-control", data_bind = "value: SelectedContact().Type", disabled = "", required = "" })
                         </div>
                     </div>
                     <div class="col-12 col-md-3">
@@ -37,7 +37,7 @@
                         <div class="form-group has-icon">
                             <label for="" class="sr-only">Birthday</label>
                             <span class="fa fa-calendar"></span>
-                            <input type="date" data-bind="value: SelectedContact().FormattedBirthDate" class="form-control" name="birthdate" id="" placeholder="Birthday" disabled="disabled">
+                            <input type="date" data-bind="value: SelectedContact().FormattedBirthDate" class="form-control" name="birthdate" id="" placeholder="Birthday" disabled="disabled" required="">
                             <small class="form-text text-muted">Birthday</small>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                         <div class="form-group has-icon">
                             <label for="" class="sr-only">Reservation date</label>
                             <span class="fa fa-calendar"></span>
-                            <input type="date" data-bind="value: ReservationDate" class="form-control" name="reservation-date" id="" placeholder="Reservation date">
+                            <input type="date" data-bind="value: ReservationDate" class="form-control" name="reservation-date" id="" placeholder="Reservation date" required="">
                             <small class="form-text text-muted">Reservation date</small>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
 
             <div class="form-actions">
                 <a class="btn btn-sm btn-gray" href="@Url.Action("List", "Reservation")">Cancel</a>
-                <input class="btn btn-sm" data-bind="click: send" type="submit" value="Send">
+                <input class="btn btn-sm" type="submit" value="Send">
             </div>
 
         </form>
