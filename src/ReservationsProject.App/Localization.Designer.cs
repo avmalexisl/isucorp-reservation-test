@@ -79,11 +79,65 @@ namespace ISUCorp.ReservationsProject.App {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contacts List.
+        /// </summary>
+        internal static string ContactsList {
+            get {
+                return ResourceManager.GetString("ContactsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create Contact.
+        /// </summary>
+        internal static string CreateContact {
+            get {
+                return ResourceManager.GetString("CreateContact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create Reservation.
+        /// </summary>
+        internal static string CreateReservation {
+            get {
+                return ResourceManager.GetString("CreateReservation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EditContact.
+        /// </summary>
+        internal static string EditContact {
+            get {
+                return ResourceManager.GetString("EditContact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Reservation.
+        /// </summary>
+        internal static string EditReservation {
+            get {
+                return ResourceManager.GetString("EditReservation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Medium.
         /// </summary>
         internal static string Medium {
             get {
                 return ResourceManager.GetString("Medium", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reservations List.
+        /// </summary>
+        internal static string ReservationsList {
+            get {
+                return ResourceManager.GetString("ReservationsList", resourceCulture);
             }
         }
     }

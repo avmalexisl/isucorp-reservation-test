@@ -167,7 +167,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helper\LocalizationHelper.cs" />
+    <Compile Include="Helpers\LocalizationHelper.cs" />
     <Compile Include="Localization.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

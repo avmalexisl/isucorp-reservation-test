@@ -1,15 +1,16 @@
 ﻿@using ISUCorp.ReservationsProject.Domain.Dto
+@using ISUCorp.ReservationsProject.App.Helpers
 @model IEnumerable<ISUCorp.ReservationsProject.Domain.Dto.ReservationDto>
 
 @{
     ViewBag.ActivePage = "Reservation";
-    ViewBag.Title = "Reservations List";
+    ViewBag.Title = LocalizationHelper.ReservationsList;
 }
 
 <div class="container">
     <div class="content">
         <div class="form-horizontal">
-            
+
             <table class="table reservation-list-table">
                 <thead>
                     <tr>
@@ -39,12 +40,13 @@
                                     @for (int i = 0; i < 5; i++)
                                     {
                                         if (i < @reservationDto.Rating)
-                                         {
-                                             <span class="fa fa-star"></span>
-                                        } else
-                                         {
-                                             <span class="fa fa-star-o"></span>
-                                         }
+                                        {
+                                            <span class="fa fa-star"></span>
+                                        }
+                                        else
+                                        {
+                                            <span class="fa fa-star-o"></span>
+                                        }
                                     }
                                 </div>
                             </td>
