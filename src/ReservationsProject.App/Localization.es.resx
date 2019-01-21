@@ -118,72 +118,72 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Advanced" xml:space="preserve">
-    <value>Advanced</value>
+    <value>Avanzado</value>
   </data>
   <data name="Basic" xml:space="preserve">
-    <value>Basic</value>
+    <value>Básico</value>
   </data>
   <data name="BirthDate" xml:space="preserve">
-    <value>Birth Date</value>
+    <value>Fecha de Nacimiento</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Cancelar</value>
   </data>
   <data name="ContactsList" xml:space="preserve">
-    <value>Contacts List</value>
+    <value>Lista de Contactos</value>
   </data>
   <data name="CreateContact" xml:space="preserve">
-    <value>Create Contact</value>
+    <value>Crear Contacto</value>
   </data>
   <data name="CreateReservation" xml:space="preserve">
-    <value>Create Reservation</value>
+    <value>Crear Reservación</value>
   </data>
   <data name="Date" xml:space="preserve">
-    <value>Date</value>
+    <value>Fecha</value>
   </data>
   <data name="Edit" xml:space="preserve">
-    <value>Edit</value>
+    <value>Editar</value>
   </data>
   <data name="EditContact" xml:space="preserve">
-    <value>Edit Contact</value>
+    <value>Editar Contacto</value>
   </data>
   <data name="EditReservation" xml:space="preserve">
-    <value>Edit Reservation</value>
+    <value>Editar Reservación</value>
   </data>
   <data name="Favorite" xml:space="preserve">
-    <value>Favorite</value>
+    <value>Favorito</value>
   </data>
   <data name="Medium" xml:space="preserve">
-    <value>Medium</value>
+    <value>Medio</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Name</value>
+    <value>Nombre</value>
   </data>
   <data name="Next" xml:space="preserve">
-    <value>Next</value>
+    <value>Siguiente</value>
   </data>
   <data name="Phone" xml:space="preserve">
-    <value>Phone</value>
+    <value>Teléfono</value>
   </data>
   <data name="Previous" xml:space="preserve">
-    <value>Previous</value>
+    <value>Anterior</value>
   </data>
   <data name="Rating" xml:space="preserve">
-    <value>Rating</value>
+    <value>Clasificación</value>
   </data>
   <data name="Remove" xml:space="preserve">
-    <value>Remove</value>
+    <value>Eliminar</value>
   </data>
   <data name="ReservationDate" xml:space="preserve">
-    <value>Reservation Date</value>
+    <value>Fecha de Reserva</value>
   </data>
   <data name="ReservationsList" xml:space="preserve">
-    <value>Reservations List</value>
+    <value>Lista de Reservaciones</value>
   </data>
   <data name="Send" xml:space="preserve">
-    <value>Send</value>
+    <value>Enviar</value>
   </data>
   <data name="Type" xml:space="preserve">
-    <value>Type</value>
+    <value>Tipo</value>
   </data>
 </root>

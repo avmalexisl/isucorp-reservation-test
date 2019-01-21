@@ -15,31 +15,31 @@
                 <div class="row">
                     <div class="col-12 col-md-3">
                         <div class="form-group has-icon">
-                            <label for="" class="sr-only">Name</label>
+                            <label for="" class="sr-only">@LocalizationHelper.Name</label>
                             <span class="fa fa-users"></span>
                             <select data-bind="options: AvailableContacts, optionsText: 'Name', value: SelectedContact" class="form-control" name="name"></select>
                         </div>
                     </div>
                     <div class="col-12 col-md-3">
                         <div class="form-group has-icon">
-                            <label for="" class="sr-only">Contact type</label>
+                            <label for="" class="sr-only">@LocalizationHelper.Type</label>
                             <span class="fa fa-globe"></span>
                             @Html.DropDownListFor(reservationDto => reservationDto.Contact.Type, Enum.GetValues(typeof(ContactType)).Cast<ContactType>().Select(x => new SelectListItem { Text = x.GetDescription(), Value = ((int)x).ToString() }), new { @class = "form-control", data_bind = "value: SelectedContact().Type", disabled = "", required = "" })
                         </div>
                     </div>
                     <div class="col-12 col-md-3">
                         <div class="form-group has-icon">
-                            <label for="" class="sr-only">Phone</label>
+                            <label for="" class="sr-only">@LocalizationHelper.Phone</label>
                             <span class="fa fa-phone"></span>
-                            <input type="text" data-bind="value: SelectedContact().Phone" class="form-control" name="phone" id="" placeholder="Phone" disabled="disabled">
+                            <input type="text" data-bind="value: SelectedContact().Phone" class="form-control" name="phone" id="" placeholder="@LocalizationHelper.Phone" disabled="disabled">
                         </div>
                     </div>
                     <div class="col-12 col-md-3">
                         <div class="form-group has-icon">
-                            <label for="" class="sr-only">Birthday</label>
+                            <label for="" class="sr-only">@LocalizationHelper.BirthDate</label>
                             <span class="fa fa-calendar"></span>
-                            <input type="date" data-bind="value: SelectedContact().FormattedBirthDate" class="form-control" name="birthdate" id="" placeholder="Birthday" disabled="disabled" required="">
-                            <small class="form-text text-muted">Birthday</small>
+                            <input type="date" data-bind="value: SelectedContact().FormattedBirthDate" class="form-control" name="birthdate" id="" placeholder="@LocalizationHelper.BirthDate" disabled="disabled" required="">
+                            <small class="form-text text-muted">@LocalizationHelper.BirthDate</small>
                         </div>
                     </div>
                 </div>
@@ -49,15 +49,15 @@
                 <div class="row">
                     <div class="col-12 col-md-3">
                         <div class="form-group has-icon">
-                            <label for="" class="sr-only">Reservation date</label>
+                            <label for="" class="sr-only">@LocalizationHelper.ReservationDate</label>
                             <span class="fa fa-calendar"></span>
-                            <input type="date" data-bind="value: ReservationDate" class="form-control" name="reservation-date" id="" placeholder="Reservation date" required="">
-                            <small class="form-text text-muted">Reservation date</small>
+                            <input type="date" data-bind="value: ReservationDate" class="form-control" name="reservation-date" id="" placeholder="@LocalizationHelper.ReservationDate" required="">
+                            <small class="form-text text-muted">@LocalizationHelper.ReservationDate</small>
                         </div>
                     </div>
                     <div class="col-12 col-md-2">
                         <div class="form-group has-icon">
-                            <label for="" class="sr-only">Rating</label>
+                            <label for="" class="sr-only">@LocalizationHelper.Rating</label>
                             <span class="fa fa-star"></span>
                             <select id="" data-bind="value: ReservationRating" class="form-control" name="rating">
                                 <option>1</option>
@@ -72,8 +72,8 @@
             </div>
 
             <div class="form-actions">
-                <a class="btn btn-sm btn-gray" href="@Url.Action("List", "Reservation")">Cancel</a>
-                <input class="btn btn-sm" type="submit" value="Send">
+                <a class="btn btn-sm btn-gray" href="@Url.Action("List", "Reservation")">@LocalizationHelper.Cancel</a>
+                <input class="btn btn-sm" type="submit" value="@LocalizationHelper.Send">
             </div>
 
         </form>

@@ -1,57 +1,64 @@
-﻿<!DOCTYPE html>
+﻿@using ISUCorp.ReservationsProject.App.Helpers
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <meta http-equiv="content-language" content="@ViewBag.CurrentLanguage">
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/bundles/css")
 </head>
 <body>
 
-<header class="main-header">
-    <div class="top">
-        <div class="container">
-            <div class="company-brand">
-                <img src="~/Content/images/isucorp.png" alt="" class="primary">
-                <img src="~/Content/images/wcsd.png" alt="" class="secondary">
-            </div>
-            <div class="options pull-right d-inline-block d-md-none">
-                @if (ViewBag.ActivePage == "Reservation")
-                {
-                    @*<a class="btn btn-sm btn-link" href="@Url.Action("Create", "Reservation")"><span class="fa fa-caret-left"></span> Create Reservation</a>*@
-                    <a class="btn btn-sm btn-link" href="@Url.Action("List", "Contact")">Contacts List <span class="fa fa-caret-right"></span></a>
-                }
-                else
-                {
-                    @*<a class="btn btn-sm btn-link" href="@Url.Action("Create", "Contact")"><span class="fa fa-caret-left"></span> Create Contact</a>*@
-                    <a class="btn btn-sm btn-link" href="@Url.Action("List", "Reservation")">Reservations List <span class="fa fa-caret-right"></span></a>
-                }
-            </div>
-        </div>
-    </div>
-    <div class="bottom">
-        <div class="container">
-            <h1 class="title">@ViewBag.Title</h1>
-            <div class="options pull-right">
-                @if (ViewBag.ActivePage == "Reservation")
-                {
-                    <a class="btn btn-sm" href="@Url.Action("Create", "Reservation")">Create Reservation</a>
-                    <a class="btn btn-sm d-none d-md-inline-block" href="@Url.Action("List", "Contact")">Contacts List</a>
-                }
-                else
-                {
-                    <a class="btn btn-sm" href="@Url.Action("Create", "Contact")">Create Contact</a>
-                    <a class="btn btn-sm d-none d-md-inline-block" href="@Url.Action("List", "Reservation")">Reservations List</a>
-                }
-
+    <header class="main-header">
+        <div class="top">
+            <div class="container">
+                <div class="company-brand">
+                    <img src="~/Content/images/isucorp.png" alt="" class="primary">
+                    <img src="~/Content/images/wcsd.png" alt="" class="secondary">
+                </div>
+                <div class="lan">
+                    <div class="btn-group" role="group" aria-label="Language">
+                        <a type="button" href="@Url.Action("SetLanguage", "Reservation", new {language = "es"})" class="btn btn-sm @if (@ViewBag.CurrentLanguage == "es") { <text>active</text>}">Es</a>
+                        <a type="button" href="@Url.Action("SetLanguage", "Reservation", new {language = "en"})" class="btn btn-sm @if (@ViewBag.CurrentLanguage == "en") { <text>active</text>}">En</a>
+                    </div>
+                </div>
+                <div class="options pull-right d-inline-block d-md-none">
+                    @if (ViewBag.ActivePage == "Reservation")
+                    {
+                    <a class="btn btn-sm btn-link" href="@Url.Action("List", "Contact")"><span class="fa fa-list"></span> @LocalizationHelper.ContactList <span class="fa fa-caret-right"></span></a>
+                    }
+                    else
+                    {
+                    <a class="btn btn-sm btn-link" href="@Url.Action("List", "Reservation")"><span class="fa fa-list"></span> @LocalizationHelper.ReservationsList <span class="fa fa-caret-right"></span></a>
+                    }
+                </div>
             </div>
         </div>
-    </div>
-</header>
+        <div class="bottom">
+            <div class="container">
+                <h1 class="title">@ViewBag.Title</h1>
+                <div class="options pull-right">
+                    @if (ViewBag.ActivePage == "Reservation")
+                    {
+                    <a class="btn btn-sm" href="@Url.Action("Create", "Reservation")"><span class="fa fa-plus"></span> @LocalizationHelper.CreateReservation</a>
+                    <a class="btn btn-sm d-none d-md-inline-block" href="@Url.Action("List", "Contact")"><span class="fa fa-list"></span> @LocalizationHelper.ContactList</a>
+                    }
+                    else
+                    {
+                    <a class="btn btn-sm" href="@Url.Action("Create", "Contact")"><span class="fa fa-plus"></span> @LocalizationHelper.CreateContact</a>
+                    <a class="btn btn-sm d-none d-md-inline-block" href="@Url.Action("List", "Reservation")"><span class="fa fa-list"></span> @LocalizationHelper.ReservationsList</a>
+                    }
 
-<article class="main-body">
-    @RenderBody()
-</article>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <article class="main-body">
+        @RenderBody()
+    </article>
 
     @Scripts.Render("~/bundles/js")
     @RenderSection("scripts", required: false)

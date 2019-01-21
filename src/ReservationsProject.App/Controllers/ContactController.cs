@@ -12,7 +12,7 @@ using Microsoft.Ajax.Utilities;
 
 namespace ISUCorp.ReservationsProject.App.Controllers
 {
-    public class ContactController : Controller
+    public class ContactController : BaseController
     {
         private readonly IContactDomainService contactService;
 

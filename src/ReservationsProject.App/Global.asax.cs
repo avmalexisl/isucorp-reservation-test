@@ -1,6 +1,10 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web;
+using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Threading;
+using System.Globalization;
 using ISUCorp.ReservationsProject.App;
 
 namespace ReservationsProject.App
@@ -14,6 +18,21 @@ namespace ReservationsProject.App
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            HttpCookie cookie = HttpContext.Current.Request.Cookies["Language"];
+            if (cookie != null && cookie.Value != null)
+            {
+                Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(cookie.Value);
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(cookie.Value);
+            }
+            else
+            {
+                Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("es");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("es");
+            }
         }
     }
 }

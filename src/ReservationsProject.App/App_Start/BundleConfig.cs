@@ -13,6 +13,7 @@ namespace ReservationsProject.App
                     "~/node_modules/jquery/dist/jquery.min.js",
                     "~/node_modules/bootstrap/dist/js/bootstrap.min.js",
                     "~/node_modules/froala-editor/js/froala_editor.pkgd.min.js",
+                    "~/node_modules/froala-editor/js/languages/es.js",
                     "~/node_modules/knockout/build/output/knockout-latest.js",
                     "~/node_modules/knockout/build/output/knockout-latest.debug.js"));
 

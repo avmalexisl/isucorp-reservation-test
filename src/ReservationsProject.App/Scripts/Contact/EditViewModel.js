@@ -50,7 +50,8 @@ $.getJSON("/Contact/GetById/" + $('#hidden-id').val(),
             toolbarButtons: [
                 'undo', 'redo', '|', 'paragraphFormat', 'bold', 'italic', 'underline', '|', 'alignLeft', 'alignCenter',
                 'alignRight', '|', 'insertLink', 'insertImage', 'insertVideo', 'emoticons'
-            ]
+            ],
+            language: $('meta[http-equiv=content-language]').attr('content')
         })
         .on('froalaEditor.image.beforeUpload', function (e, editor, files) {
             if (files.length) {

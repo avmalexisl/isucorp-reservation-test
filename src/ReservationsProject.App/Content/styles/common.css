@@ -24,6 +24,22 @@ header.main-header .top .company-brand img.primary {
     margin-right: 15px;
 }
 
+header.main-header .top .lan {
+    display: inline-block;
+    float: right;
+    margin-left: 10px;
+}
+
+header.main-header .top .lan .btn {
+    background-color: #666666;
+    color: #ffffff;
+}
+
+header.main-header .top .lan .btn.active {
+    background-color: #ffffff;
+    color: #000000;
+}
+
 header.main-header .top .options .btn {
     color: #ffffff;
     text-decoration: none;

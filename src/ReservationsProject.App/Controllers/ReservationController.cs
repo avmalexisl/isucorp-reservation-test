@@ -8,7 +8,7 @@ using ISUCorp.ReservationsProject.Domain.Services;
 
 namespace ISUCorp.ReservationsProject.App.Controllers
 {
-    public class ReservationController : Controller
+    public class ReservationController : BaseController
     {
         private readonly IReservationDomainService reservationService;
 

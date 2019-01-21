@@ -16,31 +16,31 @@
                 <div class="row">
                     <div class="col-12 col-md-3">
                         <div class="form-group has-icon">
-                            <label for="" class="sr-only">Name</label>
+                            <label for="" class="sr-only">@LocalizationHelper.Name</label>
                             <span class="fa fa-users"></span>
-                            <input data-bind="value: Name, validationElement: Name" name="Name" type="text" class="form-control" placeholder="Name" required>
+                            <input data-bind="value: Name, validationElement: Name" name="Name" type="text" class="form-control" placeholder="@LocalizationHelper.Name" required>
                             @Html.ValidationMessageFor(m => m.Name)
                         </div>
                     </div>
                     <div class="col-12 col-md-3">
                         <div class="form-group has-icon">
-                            <label for="" class="sr-only">Contact type</label>
+                            <label for="" class="sr-only">@LocalizationHelper.Type</label>
                             <span class="fa fa-globe"></span>
                             @Html.DropDownListFor(contactDto => contactDto.Type, Enum.GetValues(typeof(ContactType)).Cast<ContactType>().Select(x => new SelectListItem { Text = x.GetDescription(), Value = ((int)x).ToString() }), new { @class = "form-control", data_bind = "value: Type" })
                         </div>
                     </div>
                     <div class="col-12 col-md-3">
                         <div class="form-group has-icon">
-                            <label for="" class="sr-only">Phone</label>
+                            <label for="" class="sr-only">@LocalizationHelper.Phone</label>
                             <span class="fa fa-phone"></span>
-                            <input data-bind="value: Phone" type="text" class="form-control" placeholder="Phone">
+                            <input data-bind="value: Phone" type="text" class="form-control" placeholder="@LocalizationHelper.Phone">
                         </div>
                     </div>
                     <div class="col-12 col-md-3">
                         <div class="form-group has-icon">
-                            <label for="" class="sr-only">Birthday</label>
+                            <label for="" class="sr-only">@LocalizationHelper.BirthDate</label>
                             <span class="fa fa-calendar"></span>
-                            <input data-bind="value: Birthdate" type="date" class="form-control" placeholder="Birthday" required="">
+                            <input data-bind="value: Birthdate" type="date" class="form-control" placeholder="@LocalizationHelper.BirthDate" required="">
                         </div>
                     </div>
                 </div>
@@ -48,8 +48,8 @@
                 <div id="edit"></div>
 
                 <div class="form-actions">
-                    <a class="btn btn-sm btn-gray" href="@Url.Action("List", "Contact")">Cancel</a>
-                    <input class="btn btn-sm" type="submit" value="Send">
+                    <a class="btn btn-sm btn-gray" href="@Url.Action("List", "Contact")">@LocalizationHelper.Cancel</a>
+                    <input class="btn btn-sm" type="submit" value="@LocalizationHelper.Send">
                 </div>
 
             </form>
