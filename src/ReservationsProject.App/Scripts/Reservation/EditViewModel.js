@@ -28,3 +28,7 @@ $.getJSON("/Reservation/GetById/" + $('#hidden-id').val(),
 
         ko.applyBindings(EditViewModel);
     });
+
+$('#reservation-date').prop('min', function () {
+    return new Date().toJSON().split('T')[0];
+});

@@ -11,7 +11,7 @@
 <article class="main-body">
     <div class="container">
         <div class="content">
-            <div class="form-horizontal">
+            <form data-bind="submit: send" class="form-horizontal">
 
                 <input type="hidden" value="@Model.Id" id="hidden-id" />
                 <div class="row">
@@ -37,7 +37,7 @@
                             <label for="" class="sr-only">@LocalizationHelper.Phone</label>
                             <span class="fa fa-phone"></span>
                             <input type="hidden" value="@Model.Phone" id="hidden-phone" />
-                            <input data-bind="value: Phone" type="text" class="form-control" placeholder="@LocalizationHelper.Phone">
+                            <input data-bind="value: Phone" type="text" class="form-control" placeholder="@LocalizationHelper.Phone" pattern="[0-9]+">
                         </div>
                     </div>
                     <div class="col-12 col-md-3">
@@ -45,7 +45,7 @@
                             <label for="" class="sr-only">Birthday</label>
                             <span class="fa fa-calendar"></span>
                             <input type="hidden" value="@Model.BirthDate.ToString("dd-MM-yyyy")" id="hidden-birthdate" />
-                            <input data-bind="value: Birthdate" type="date" class="form-control" placeholder="@LocalizationHelper.BirthDate">
+                            <input id="birthdate" data-bind="value: Birthdate" type="date" class="form-control" placeholder="@LocalizationHelper.BirthDate">
                         </div>
                     </div>
                 </div>
@@ -54,10 +54,10 @@
 
                 <div class="form-actions">
                     <a class="btn btn-sm btn-gray" href="@Url.Action("List", "Contact")">@LocalizationHelper.Cancel</a>
-                    <input class="btn btn-sm" data-bind="click: send" value="@LocalizationHelper.Send">
+                    <input class="btn btn-sm" type="submit" value="@LocalizationHelper.Send">
                 </div>
 
-            </div>
+            </form>
         </div>
     </div>
 </article>

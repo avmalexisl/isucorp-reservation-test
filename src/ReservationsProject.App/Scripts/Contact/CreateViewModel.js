@@ -48,3 +48,7 @@ var froala = $('#edit').froalaEditor({
 });
 
 ko.applyBindings(CreateViewModel);
+
+$('#birthdate').prop('max', function () {
+    return new Date().toJSON().split('T')[0];
+});

@@ -28,13 +28,6 @@
 
 ko.applyBindings(EditViewModel);
 
-/*EditViewModel.Id($('#hidden-id').val());
-EditViewModel.Name($('#hidden-name').val());
-EditViewModel.Type($('#hidden-type').val());
-EditViewModel.Birthdate(Date($('#hidden-birthdate').val()));
-EditViewModel.Phone($('#hidden-phone').val());
-EditViewModel.Description($('#hidden-description').html());*/
-
 $.getJSON("/Contact/GetById/" + $('#hidden-id').val(),
     function (data) {
         EditViewModel.Id(data.Id);
@@ -71,3 +64,7 @@ $.getJSON("/Contact/GetById/" + $('#hidden-id').val(),
 
 
 var froala;
+
+$('#birthdate').prop('max', function () {
+    return new Date().toJSON().split('T')[0];
+});

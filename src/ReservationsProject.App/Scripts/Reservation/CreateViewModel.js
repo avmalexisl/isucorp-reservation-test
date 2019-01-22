@@ -32,3 +32,7 @@ $.getJSON("/Contact/GetAll/",
 
         ko.applyBindings(CreateViewModel);
     });
+
+$('#reservation-date').prop('min', function () {
+    return new Date().toJSON().split('T')[0];
+});
