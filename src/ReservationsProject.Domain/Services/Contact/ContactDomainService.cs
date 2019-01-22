@@ -41,7 +41,7 @@ namespace ISUCorp.ReservationsProject.Domain.Services
 
         public ContactDto Find(int id)
         {
-            return Mapper.Map<ContactDto>(this._repository.FindById(id));
+            return Mapper.Map<ContactDto>(this._repository.FindByIdStoredProcedure(id));
         }
 
         public CollectionResponseDto<ContactDto> FindAll()

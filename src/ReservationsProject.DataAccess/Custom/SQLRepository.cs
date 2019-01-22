@@ -1,13 +1,10 @@
 ﻿using ISUCorp.ReservationsProject.Core.Interfaces;
 using ISUCorp.ReservationsProject.DataAccess.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ISUCorp.ReservationsProject.DataAccess.Custom
 {
@@ -15,9 +12,11 @@ namespace ISUCorp.ReservationsProject.DataAccess.Custom
         where T : class, IEntity
     {
         protected ObjectSet<T> _objectSet;
+        protected ObjectContext _context;
 
         public SQLRepository(ObjectContext context) {
             _objectSet = context.CreateObjectSet<T>();
+            _context = context;
         }
 
         public void Add(T newEntity)
@@ -43,6 +42,13 @@ namespace ISUCorp.ReservationsProject.DataAccess.Custom
         public T FindById(int id)
         {
             return _objectSet.Single(o => o.Id == id);
+        }
+
+        public T FindByIdStoredProcedure(int id)
+        {
+            SqlParameter contactId = new SqlParameter("@ContactId", id);
+            var contact = _context.ExecuteStoreQuery<T>("GetContact @ContactId", contactId);
+            return contact.First();
         }
     }
 }

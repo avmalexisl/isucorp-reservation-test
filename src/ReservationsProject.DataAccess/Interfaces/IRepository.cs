@@ -15,5 +15,7 @@ namespace ISUCorp.ReservationsProject.DataAccess.Interfaces
         IQueryable<T> FindAll();
 
         T FindById(int id);
+
+        T FindByIdStoredProcedure(int id);
     }
 }
