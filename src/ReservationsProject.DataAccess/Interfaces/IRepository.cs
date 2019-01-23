@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -10,9 +11,9 @@ namespace ISUCorp.ReservationsProject.DataAccess.Interfaces
 
         void Remove(T entity);
 
-        IQueryable<T> Find(Expression<Func<T, bool>> predicate);
+        IEnumerable<T> Find(Expression<Func<T, bool>> predicate);
 
-        IQueryable<T> FindAll();
+        IEnumerable<T> FindAll();
 
         T FindById(int id);
 

@@ -1,6 +1,7 @@
 ﻿using ISUCorp.ReservationsProject.Core.Interfaces;
 using ISUCorp.ReservationsProject.DataAccess.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity.Core.Objects;
 using System.Data.SqlClient;
 using System.Linq;
@@ -29,12 +30,12 @@ namespace ISUCorp.ReservationsProject.DataAccess.Custom
             _objectSet.DeleteObject(entity);
         }
 
-        public IQueryable<T> Find(Expression<Func<T, bool>> predicate)
+        public IEnumerable<T> Find(Expression<Func<T, bool>> predicate)
         {
             return _objectSet.Where(predicate);
         }
 
-        public IQueryable<T> FindAll()
+        public IEnumerable<T> FindAll()
         {
             return _objectSet;
         }

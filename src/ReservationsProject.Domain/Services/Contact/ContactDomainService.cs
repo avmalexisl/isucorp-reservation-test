@@ -67,7 +67,7 @@ namespace ISUCorp.ReservationsProject.Domain.Services
 
             var entities = this._repository.FindAll();
             var propertyInfo = typeof(Contact).GetProperty(input.SortBy);
-            var result = entities.AsEnumerable().OrderBy(t => propertyInfo.GetValue(t, null)).Skip(input.SkipCount).Take(input.MaxCount).ToList();
+            var result = entities.OrderBy(t => propertyInfo.GetValue(t, null)).Skip(input.SkipCount).Take(input.MaxCount).ToList();
             var response = new CollectionResponseDto<ContactDto> { SourceTotal = entities.Count() };
             var items = Mapper.Map<List<ContactDto>>(result);
             response.Items.AddRange(items);
