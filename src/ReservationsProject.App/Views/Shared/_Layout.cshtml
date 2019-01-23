@@ -20,18 +20,18 @@
                 </div>
                 <div class="lan">
                     <div class="btn-group" role="group" aria-label="Language">
-                        <a type="button" href="@Url.Action("SetLanguage", "Reservation", new {language = "es"})" class="btn btn-sm @if (@ViewBag.CurrentLanguage == "es") { <text>active</text>}">Es</a>
-                        <a type="button" href="@Url.Action("SetLanguage", "Reservation", new {language = "en"})" class="btn btn-sm @if (@ViewBag.CurrentLanguage == "en") { <text>active</text>}">En</a>
+                        <a type="button" href="@Url.Action("SetLanguage", "Base", new {language = "es"})" class="btn btn-sm @if (@ViewBag.CurrentLanguage == "es") { <text>active</text>}">Es</a>
+                        <a type="button" href="@Url.Action("SetLanguage", "Base", new {language = "en"})" class="btn btn-sm @if (@ViewBag.CurrentLanguage == "en") { <text>active</text>}">En</a>
                     </div>
                 </div>
                 <div class="options pull-right d-inline-block d-md-none">
                     @if (ViewBag.ActivePage == "Reservation")
                     {
-                    <a class="btn btn-sm btn-link" href="@Url.Action("List", "Contact")"><span class="fa fa-list"></span> @LocalizationHelper.ContactList <span class="fa fa-caret-right"></span></a>
+                    <a class="btn btn-sm btn-link" href="@Url.Action("List", "Contact")">@LocalizationHelper.ContactList</a>
                     }
                     else
                     {
-                    <a class="btn btn-sm btn-link" href="@Url.Action("List", "Reservation")"><span class="fa fa-list"></span> @LocalizationHelper.ReservationsList <span class="fa fa-caret-right"></span></a>
+                    <a class="btn btn-sm btn-link" href="@Url.Action("List", "Reservation")">@LocalizationHelper.ReservationsList</a>
                     }
                 </div>
             </div>
@@ -40,15 +40,30 @@
             <div class="container">
                 <h1 class="title">@ViewBag.Title</h1>
                 <div class="options pull-right">
-                    @if (ViewBag.ActivePage == "Reservation")
+                    @if (ViewContext.RouteData.Values["controller"].Equals("Reservation"))
                     {
-                    <a class="btn btn-sm" href="@Url.Action("Create", "Reservation")"><span class="fa fa-plus"></span> @LocalizationHelper.CreateReservation</a>
-                    <a class="btn btn-sm d-none d-md-inline-block" href="@Url.Action("List", "Contact")"><span class="fa fa-list"></span> @LocalizationHelper.ContactList</a>
+                        if (ViewContext.RouteData.Values["action"].Equals("List"))
+                        {
+                            <a class="btn btn-sm" href="@Url.Action("Create", "Reservation")"><span class="fa fa-plus"></span> @LocalizationHelper.CreateReservation</a>
+                            <a class="btn btn-sm d-none d-md-inline-block" href="@Url.Action("List", "Contact")"><span class="fa fa-list"></span> @LocalizationHelper.ContactList</a>
+                        }
+                        else if (ViewContext.RouteData.Values["action"].Equals("Create") || ViewContext.RouteData.Values["action"].Equals("Edit"))
+                        {
+                            <a class="btn btn-sm" href="@Url.Action("List", "Reservation")"><span class="fa fa-mail-reply"></span> @LocalizationHelper.ReservationsList</a>
+                        }
                     }
-                    else
+                    else if (ViewContext.RouteData.Values["controller"].Equals("Contact"))
                     {
-                    <a class="btn btn-sm" href="@Url.Action("Create", "Contact")"><span class="fa fa-plus"></span> @LocalizationHelper.CreateContact</a>
-                    <a class="btn btn-sm d-none d-md-inline-block" href="@Url.Action("List", "Reservation")"><span class="fa fa-list"></span> @LocalizationHelper.ReservationsList</a>
+                        if (ViewContext.RouteData.Values["action"].Equals("List"))
+                        {
+                            <a class="btn btn-sm" href="@Url.Action("Create", "Contact")"><span class="fa fa-plus"></span> @LocalizationHelper.CreateContact</a>
+                            <a class="btn btn-sm d-none d-md-inline-block" href="@Url.Action("List", "Reservation")"><span class="fa fa-list"></span> @LocalizationHelper.ReservationsList</a>
+                        }
+                        else if (ViewContext.RouteData.Values["action"].Equals("Create") || ViewContext.RouteData.Values["action"].Equals("Edit"))
+                        {
+                            <a class="btn btn-sm" href="@Url.Action("List", "Contact")"><span class="fa fa-mail-reply"></span> @LocalizationHelper.ContactList</a>
+                        }
+
                     }
 
                 </div>

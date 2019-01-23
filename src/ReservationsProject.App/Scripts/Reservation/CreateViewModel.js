@@ -12,12 +12,13 @@
             ContactId: CreateViewModel.SelectedContact().Id
         });
         $.ajax({
-            url: "/Reservation/Create",
+            //url: "/Reservation/Create",
+            url: urlActions.create,
             type: "POST",
             data: JSON.stringify(json),
             contentType: "application/json",
             success: function (result) {
-                window.location.href = window.location.origin + "/Reservation/List";
+                window.location.href = urlActions.list;
             },
             error: function (xmlHttpRequest, textStatus, errorThrown) {
                 alert(errorThrown);
@@ -26,7 +27,7 @@
     }
 };
 
-$.getJSON("/Contact/GetAll/",
+$.getJSON(urlActions.getAll,
     function (data) {
         CreateViewModel.AvailableContacts(data.Items);
 

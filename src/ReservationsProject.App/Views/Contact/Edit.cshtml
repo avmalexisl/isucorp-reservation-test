@@ -4,7 +4,6 @@
 @model ISUCorp.ReservationsProject.Domain.Dto.ContactDto
 
 @{
-    ViewBag.ActivePage = "Contact";
     ViewBag.Title = LocalizationHelper.EditContact;
 }
 
@@ -64,5 +63,12 @@
 
 @section scripts
 {
+    <script>
+        var urlActions = {
+            list: '@Url.Action("List", "Contact")',
+            edit: '@Url.Action("Edit", "Contact")',
+            getById: '@Url.Action("GetById", "Contact", new { id = Model.Id })'
+        };
+    </script>
     <script src="~/Scripts/Contact/EditViewModel.js"></script>
 }

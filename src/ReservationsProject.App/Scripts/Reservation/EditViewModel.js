@@ -8,12 +8,12 @@
         json.ReservationDate = json.FormattedReservationDate;
         json.Contact.BirthDate = json.Contact.FormattedBirthDate;
         $.ajax({
-            url: "/Reservation/Edit",
+            url: urlActions.edit,
             type: "POST",
             data: JSON.stringify(json),
             contentType: "application/json",
             success: function (result) {
-                window.location.href = window.location.origin + "/Reservation/List";
+                window.location.href = urlActions.list;
             },
             error: function (xmlHttpRequest, textStatus, errorThrown) {
                 alert(errorThrown);
@@ -22,7 +22,7 @@
     }
 };
 
-$.getJSON("/Reservation/GetById/" + $('#hidden-id').val(),
+$.getJSON(urlActions.getById + '/' + $('#hidden-id').val(),
     function (data) {
         EditViewModel.Reservation(data);
 

@@ -97,7 +97,7 @@ namespace ISUCorp.ReservationsProject.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Contacts List.
+        ///   Looks up a localized string similar to Contact List.
         /// </summary>
         internal static string ContactsList {
             get {
@@ -241,7 +241,7 @@ namespace ISUCorp.ReservationsProject.App {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reservations List.
+        ///   Looks up a localized string similar to Reservation List.
         /// </summary>
         internal static string ReservationsList {
             get {

@@ -12,12 +12,12 @@
         var json = ko.toJS(EditViewModel);
         json.Description = JSON.stringify(description);
         $.ajax({
-            url: "/Contact/Edit",
+            url: urlActions.edit,
             type: "POST",
             data: JSON.stringify(json),
             contentType: "application/json",
             success: function (result) {
-                window.location.href = window.location.origin + "/Contact/List";
+                window.location.href = urlActions.list;
             },
             error: function (xmlHttpRequest, textStatus, errorThrown) {
                 alert(errorThrown);
@@ -28,7 +28,7 @@
 
 ko.applyBindings(EditViewModel);
 
-$.getJSON("/Contact/GetById/" + $('#hidden-id').val(),
+$.getJSON(urlActions.getById,
     function (data) {
         EditViewModel.Id(data.Id);
         EditViewModel.Name(data.Name);

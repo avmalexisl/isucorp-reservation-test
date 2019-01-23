@@ -4,7 +4,6 @@
 @model ISUCorp.ReservationsProject.Domain.Dto.ReservationInputDto
 
 @{
-    ViewBag.ActivePage = "Reservation";
     ViewBag.Title = LocalizationHelper.CreateReservation;
 }
 
@@ -82,5 +81,12 @@
 
 @section scripts
 {
+    <script>
+        var urlActions = {
+            list: '@Url.Action("List", "Reservation")',
+            create: '@Url.Action("Create", "Reservation")',
+            getAll: '@Url.Action("GetAll", "Contact")'
+        };
+    </script>
     <script src="~/Scripts/Reservation/CreateViewModel.js"></script>
 }

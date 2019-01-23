@@ -11,12 +11,12 @@
         var json = ko.toJS(CreateViewModel);
         json.Description = JSON.stringify(description);
         $.ajax({
-            url: "/Contact/Create",
+            url: urlActions.create,
             type: "POST",
             data: JSON.stringify(json),
             contentType: "application/json",
             success: function (result) {
-                window.location.href = window.location.origin + "/Contact/List";
+                window.location.href = urlActions.list;
             },
             error: function (xmlHttpRequest, textStatus, errorThrown) {
                 alert(errorThrown);

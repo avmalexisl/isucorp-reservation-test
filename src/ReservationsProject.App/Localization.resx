@@ -130,7 +130,7 @@
     <value>Cancel</value>
   </data>
   <data name="ContactsList" xml:space="preserve">
-    <value>Contacts List</value>
+    <value>Contact List</value>
   </data>
   <data name="CreateContact" xml:space="preserve">
     <value>Create Contact</value>
@@ -178,7 +178,7 @@
     <value>Reservation Date</value>
   </data>
   <data name="ReservationsList" xml:space="preserve">
-    <value>Reservations List</value>
+    <value>Reservation List</value>
   </data>
   <data name="Send" xml:space="preserve">
     <value>Send</value>

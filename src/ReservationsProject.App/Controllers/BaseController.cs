@@ -25,8 +25,8 @@ namespace ISUCorp.ReservationsProject.App.Controllers
             HttpCookie cookie = new HttpCookie("Language");
             cookie.Value = currentLanguage;
             Response.Cookies.Add(cookie);
-
-            return RedirectToAction("List");
+            
+            return Redirect(Request.UrlReferrer.AbsoluteUri);
         }
     }
 }
